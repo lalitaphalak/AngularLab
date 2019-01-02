@@ -1,0 +1,11 @@
+<div class="card" *ngIf="selectedCountry">
+  <div class="card-header" [style.color]="FontColor">
+    Cities for {{selectedCountry}}
+  </div>
+  <div class="card-body">
+    <label for="citiesDropdown">Select a city:</label>
+  	<select class="form-control" id="citiesDropdown" [(ngModel)]="selectedCity" (ngModelChange)="notifyParent()">
+      <option *ngFor="let city of cities">{{city}}</option>
+    </select>
+  </div>
+</div>

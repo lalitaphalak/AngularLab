@@ -1,0 +1,36 @@
+<div class="row>">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="card">
+      <div class="card-header" [style.color]="FontColor">
+        Countries
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            <label for="filterDropdown">Select a Filter:</label>
+            <select class="form-control" id="filterDropdown" [(ngModel)] = "selectedFilter" placeholder="Select a Filter">
+              <option value='startBy'>'Start By'</option>
+              <option value='endBy'>'End By'</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <div class="form-group">
+              <label for="str">Enter Character/string to filter</label>
+              <input type="text" class="form-control" id="str" aria-describedby="str" placeholder="Enter Character/string" [(ngModel)] = "str" inputValidate>
+            </div>
+          </div>
+        </div>
+        <br/>
+      	<label for="countriesDropdown">Select a country:</label>
+      	<select class="form-control" id="countriesDropdown" [(ngModel)] = "selectedCountry" placeholder="Select a country">
+          <option *ngFor="let country of countries | filter:[selectedFilter,str]">{{country}}</option>
+        </select>
+        <br/>
+        <app-cities [country]="selectedCountry" (cityNotification) = "getCity($event)" ></app-cities>
+        <br/>
+        <p *ngIf="selectedCity">Selected City from Child: {{selectedCity}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

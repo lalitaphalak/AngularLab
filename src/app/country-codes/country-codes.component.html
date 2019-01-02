@@ -1,0 +1,28 @@
+<div class="row>">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="card">
+		  <div class="card-header" [style.color]="FontColor">
+		    Country Codes <span *ngIf="data">- Total {{data.length}}</span>
+		  </div>
+		  <div class="card-body">
+		  	<button class="btn btn-primary" style="margin-bottom: 20px;" (click)="getAllData()">Fetch Data</button>
+		  	<table class="table" *ngIf="data">
+			  <thead>
+			    <tr>
+			      <th scope="col">Country</th>
+			      <th scope="col">alpha2 code</th>
+			      <th scope="col">alpha3 code</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr *ngFor="let country of data">
+			      <td>{{country.name}}</td>
+			      <td>{{country.alpha2_code}}</td>
+			      <td>{{country.alpha3_code}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+		  </div>
+		</div>
+	</div>
+</div>

@@ -1,20 +1,49 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+<br/>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">Assignment</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li [ngClass]="checkActiveLink('/')">
+        <a class="nav-link" href="#" [routerLink]="['/']">Home</a>
+      </li>
+      <li [ngClass]="checkActiveLink('/login')">
+        <a class="nav-link" [routerLink]="['/login']">Log In</a>
+      </li>
+      <li [ngClass]="checkActiveLink('/countries')">
+        <a class="nav-link" href="#" [routerLink]="['/countries']">Countries</a>
+      </li>
+      <li [ngClass]="checkActiveLink('/country-codes')">
+        <a class="nav-link" [routerLink]="['/country-codes']">Country-Codes </a>
+      </li>
+      <li [ngClass]="checkActiveLink('/country-codes/search')">
+        <a class="nav-link" [routerLink]="['/country-codes/search']">Search</a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+<div class="container" style="padding: 60px 15px 15px 15px; max-width: 100%;">
+  <div class="row justify-content-md-center" style="padding-left: 15px; padding-right: 15px;">
+    <div class="col-sm-12 col-md-4 col-lg-4" *ngIf="showComponent">
+      <div class="card">
+        <div class="card-header" [style.color]="FontColor">
+          {{ComponentTitle}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Check Property Binding here.</h5>
+          <p class="card-text">For ComponentTitle and FontColor.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-8 justify-content-md-center" *ngIf="!showComponent">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
 
